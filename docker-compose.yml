@@ -1,0 +1,35 @@
+version: "3.5"
+services:
+  mongo:
+    image: mongo:4.4.12-focal
+    container_name: mongo-spring
+    env_file:
+     - .env
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+    volumes:
+       - ${STORAGE}:/data/db
+    networks:
+       - backend
+    restart: unless-stopped
+
+  spring-app:
+    image: spring-app:latest
+    container_name: springboot-CRUD
+    env_file:
+     - .env
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongo
+    networks:
+      - backend
+    restart: unless-stopped
+
+networks:
+  backend:
+    external:
+      name: backend
