@@ -1,7 +1,7 @@
 ## CRUD example with SpringBoot and MongoDB
 
 <p align="center">
-  <img src="/home/carlos/Descargas/Product_List_edit.png" alt="Example image" width="1000" height="500">
+  <img src="https://gitlab.com/csq1/spring-mongodb-crud/-/raw/master/img/Product_List.png" alt="Example image" width="1000" height="500">
 </p>
 
 Small example of use SpringBoot with NoSQL database
@@ -37,7 +37,7 @@ Files to config.
 
 1. `application.properties` section in `spring-mongodb-crud/src/main/resources` directory:
 
-	```yaml
+	```
 	spring.data.mongodb.database=database-name
 	spring.data.mongodb.host=host
 	spring.data.mongodb.port=27017
